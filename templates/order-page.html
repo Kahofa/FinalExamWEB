@@ -76,18 +76,8 @@
           <label for="comments" key="comments">Комментарий:</label>
           <textarea id="comments" name="comments" class="input-field" rows="4" placeholder="Введите детали заказа..." key="namePlaceholder"></textarea>
 
-          <label for="file" id="attach-file" key="attach-file">Прикрепить файл:</label>
-          <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
-            <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
-                -<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                </svg>
-                <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
-                </div>
-                <p class="pointer-none text-gray-500 " key="drag-drop"><span class="text-sm">Перетащите</span> файлы сюда <br /> или <a href="" class="text-blue-600 hover:underline">выберите файл</a>  на вашем компьютере</p>
-            </div>
-            <input type="file" class="hidden">
-        </label>
+          <label for="url" id="attach-file" key="attach-file">Указать ссылку на референс</label>
+          <input type="url" id="url" name="url" class="input-field" placeholder="https://example.com" pattern="https://.*" required>
     
             </div>
           <button type="submit" class="submit-button" key="send-order">Отправить заказ</button>
@@ -119,7 +109,8 @@
             <li><a href="#web-development" key="webdevelopment">Веб-разработка</a></li>
             <li><a href="#discord-bots" key="bots">Боты</a></li>
             <li><a href="#technical-support" key="maintenance">Техническое обслуживание</a></li>
-            <li><a href="#" key="video-surveillance" >Товарные Маркеплейсы</a></li>          </ul>
+            <li><a href="#" key="video-surveillance" >Товарные Маркеплейсы</a></li>
+          </ul>
         </div>
         <div class="footer-section">
           <h1 key="other">Другое💠</h1>
@@ -136,7 +127,7 @@
       </div>
       <div class="copyright-info">
         <p key="24hcontact">malik@malstavo.com - Круглосуточно</p>
-        <p key="afterhourscontact">stavr@malstavo.com - Ненормативный</p>
+        <p key="afterhourscontact">stavr@malstavo.com - По настроению</p>
       </div>
       </footer>
 
