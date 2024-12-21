@@ -2,18 +2,18 @@ document.querySelector('.order-form').addEventListener("submit", async (e) => {
     e.preventDefault();
     const orderError = document.querySelector("#orderError");
 
-    orderError.textContent = ""; // Очистим предыдущие ошибки
+    orderError.textContent = "";
 
     const formData = new FormData(e.target);
     const data = {
-        user_id: formData.get('user_id'), // Пример для user_id, если есть
-        type_id: formData.get('category'), // Пример для type_id, соответствующий выбору категории
+        user_id: formData.get('user_id'),
+        type_id: formData.get('category'),
         comment: formData.get('comments'),
-        files: formData.get('url') // Ссылка на файл или строка
+        files: formData.get('url')
     };
 
     try {
-        // Отправляем данные на сервер
+
         const response = await fetch("/add_order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -23,23 +23,19 @@ document.querySelector('.order-form').addEventListener("submit", async (e) => {
         const result = await response.json();
 
         if (response.ok) {
-            orderError.style.color = "#38a169"; // Зеленый для успешного добавления
-            orderError.textContent = result.message; // Сообщение о успешном добавлении
-
-            // Сбросим форму
+            orderError.style.color = "#38a169";
+            orderError.textContent = result.message;
             e.target.reset();
-
-            // Обновим страницу через 1 секунду (например, чтобы дать время для отображения сообщения)
             setTimeout(() => {
-                location.reload(); // Перезагружаем страницу
+                location.reload();
             }, 1000);
         } else {
-            orderError.style.color = "#e53e3e"; // Красный для ошибки
-            orderError.textContent = result.message; // Сообщение об ошибке
+            orderError.style.color = "#e53e3e";
+            orderError.textContent = result.message;
         }
 
     } catch (error) {
-        orderError.style.color = "#e53e3e"; // Красный для ошибки
+        orderError.style.color = "#e53e3e";
         orderError.textContent = "Произошла ошибка. Попробуйте позже.";
     }
 });
