@@ -117,7 +117,8 @@ const translations = {
         "keep-touch": "Чтобы поддерживать с нами связь, пожалуйста, войдите в систему, указав свои личные данные",
         "hi-friend": "Привет, Друг!",
         "input-your-value": "Введите свои личные данные и отправляйтесь в путешествие вместе с нами",
-        "select-category": "Выберите категорию"
+        "select-category": "Выберите категорию",
+        "malstavo":"Malstavo"
 
     },
     en: {
@@ -238,7 +239,8 @@ const translations = {
         "keep-touch": "To stay connected with us, please log in with your personal information",
         "hi-friend": "Hello, Friend!",
         "input-your-value": "Enter your personal details and start your journey with us",
-        "select-category": "Select a category"
+        "select-category": "Select a category",
+        "malstavo":"Malstavo"
 
     }
 };

@@ -1,8 +1,8 @@
 document.querySelector('.order-form').addEventListener("submit", async (e) => {
     e.preventDefault();
-    const signInErrorMsg = document.querySelector("#signInErrorMsg");
+    const orderError = document.querySelector("#orderError");
 
-    signInErrorMsg.textContent = ""; // Очистим предыдущие ошибки
+    orderError.textContent = ""; // Очистим предыдущие ошибки
 
     const formData = new FormData(e.target);
     const data = {
@@ -23,8 +23,8 @@ document.querySelector('.order-form').addEventListener("submit", async (e) => {
         const result = await response.json();
 
         if (response.ok) {
-            signInErrorMsg.style.color = "#38a169"; // Зеленый для успешного добавления
-            signInErrorMsg.textContent = result.message; // Сообщение о успешном добавлении
+            orderError.style.color = "#38a169"; // Зеленый для успешного добавления
+            orderError.textContent = result.message; // Сообщение о успешном добавлении
 
             // Сбросим форму
             e.target.reset();
@@ -34,12 +34,12 @@ document.querySelector('.order-form').addEventListener("submit", async (e) => {
                 location.reload(); // Перезагружаем страницу
             }, 1000);
         } else {
-            signInErrorMsg.style.color = "#e53e3e"; // Красный для ошибки
-            signInErrorMsg.textContent = result.message; // Сообщение об ошибке
+            orderError.style.color = "#e53e3e"; // Красный для ошибки
+            orderError.textContent = result.message; // Сообщение об ошибке
         }
 
     } catch (error) {
-        signInErrorMsg.style.color = "#e53e3e"; // Красный для ошибки
-        signInErrorMsg.textContent = "Произошла ошибка. Попробуйте позже.";
+        orderError.style.color = "#e53e3e"; // Красный для ошибки
+        orderError.textContent = "Произошла ошибка. Попробуйте позже.";
     }
 });
