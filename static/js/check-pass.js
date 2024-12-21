@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const translations = {
         ru: {
             fillAllFields: "Пожалуйста, заполните все поля!",
-            passwordTooShort: "Пароль должен содержать минимум 6 символов!",
+            passwordTooShort: "Пароль должен содержать минимум 4 символа!",
             successfulRegistration: "Успешная регистрация!",
             successfulLogin: "Успешный вход!"
         },
         kz: {
             fillAllFields: "Please fill in all fields!",
-            passwordTooShort: "Password must be at least 6 characters long!",
+            passwordTooShort: "Password must be at least 4 characters long!",
             successfulRegistration: "Registration successful!",
             successfulLogin: "Login successful!"
 
@@ -40,49 +40,105 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    signUpForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        signUpErrorMsg.textContent = "";
+    signUpForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    signUpErrorMsg.textContent = "";
 
-        if (!signUpNameInput.value || !signUpEmailInput.value || !signUpPasswordInput.value) {
-            signUpErrorMsg.textContent = translations[currentLanguage].fillAllFields;
+    const username = signUpNameInput.value.trim();
+    const email = signUpEmailInput.value.trim();
+    const password = signUpPasswordInput.value.trim();
+
+    if (!username || !email || !password) {
+        signUpErrorMsg.textContent = "Пожалуйста, заполните все поля.";
+        shakeForm(signUpForm); // Анимация формы (по желанию)
+        return;
+    }
+
+    if (password.length < 4) {
+        signUpErrorMsg.textContent = "Пароль слишком короткий.";
+        shakeForm(signUpForm); // Анимация формы (по желанию)
+        return;
+    }
+
+    signUpErrorMsg.style.color = "#38a169"; // Зеленый цвет для успешной регистрации
+    signUpErrorMsg.textContent = "Регистрация прошла успешно. Пожалуйста, подождите...";
+
+    try {
+        const response = await fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            signUpErrorMsg.style.color = "#38a169"; // Зеленый цвет для успешной регистрации
+            signUpErrorMsg.textContent = result.message;
+
+            // Переадресация на другую страницу (например, в личный кабинет)
+            setTimeout(() => {
+                window.location.href = "/"; // Поменяйте путь на нужный
+            }, 1000);
+        } else {
+            signUpErrorMsg.style.color = "#e53e3e"; // Красный цвет для ошибки
+            signUpErrorMsg.textContent = result.message;
             shakeForm(signUpForm);
-            clearErrorMsg(signUpErrorMsg);
-            return;
         }
+    } catch (error) {
+        signUpErrorMsg.style.color = "#e53e3e"; // Красный цвет для ошибки
+        signUpErrorMsg.textContent = "Произошла ошибка. Попробуйте позже.";
+    }
+});
 
-        if (signUpPasswordInput.value.length < 3) {
-            signUpErrorMsg.textContent = translations[currentLanguage].passwordTooShort;
-            shakeForm(signUpForm);
-            clearErrorMsg(signUpErrorMsg);
-            return;
-        }
+    signInForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    signInErrorMsg.textContent = "";
 
-        signUpErrorMsg.style.color = "#38a169";
-        signUpErrorMsg.textContent = translations[currentLanguage].successfulRegistration;
-    });
+    const username = signInNameInput.value.trim();
+    const password = signInPasswordInput.value.trim();
 
-    signInForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        signInErrorMsg.textContent = "";
+    if (!username || !password) {
+        signInErrorMsg.textContent = "Пожалуйста, заполните все поля.";
+        shakeForm(signInForm); // Анимация формы (по желанию)
+        return;
+    }
 
-        if (!signInNameInput.value || !signInPasswordInput.value) {
-            signInErrorMsg.textContent = translations[currentLanguage].fillAllFields;
+    if (password.length < 4) {
+        signInErrorMsg.textContent = "Пароль слишком короткий.";
+        shakeForm(signInForm); // Анимация формы (по желанию)
+        return;
+    }
+
+    try {
+        console.log("Отправляемые данные:", { username, password });
+
+        const response = await fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            signInErrorMsg.style.color = "#38a169"; // Зеленый цвет для успешного входа
+            signInErrorMsg.textContent = result.message;
+
+            // Переадресация на другую страницу (например, личный кабинет)
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
+        } else {
+            signInErrorMsg.style.color = "#e53e3e"; // Красный цвет для ошибки
+            signInErrorMsg.textContent = result.message;
             shakeForm(signInForm);
-            clearErrorMsg(signInErrorMsg);
-            return;
         }
-
-        if (signInPasswordInput.value.length < 6) {
-            signInErrorMsg.textContent = translations[currentLanguage].passwordTooShort;
-            shakeForm(signInForm);
-            clearErrorMsg(signInErrorMsg);
-            return;
-        }
-
-        signInErrorMsg.style.color = "#38a169";
-        signInErrorMsg.textContent = translations[currentLanguage].successfulLogin;
-    });
+    } catch (error) {
+        signInErrorMsg.style.color = "#e53e3e"; // Красный цвет для ошибки
+        signInErrorMsg.textContent = "Произошла ошибка. Попробуйте позже.";
+    }
+});
 
     function shakeForm(form) {
         form.classList.add("shake");

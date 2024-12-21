@@ -1,33 +1,35 @@
 document.querySelector('.order-form').addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const signInErrorMsg = document.querySelector("#signInErrorMsg");
-    signInErrorMsg.textContent = ""; // Очистить все предыдущие ошибки
+
+    signInErrorMsg.textContent = ""; // Очистим предыдущие ошибки
 
     const formData = new FormData(e.target);
-
-    // Логируем содержимое формы перед отправкой
-    formData.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
-    });
+    const data = {
+        user_id: formData.get('user_id'), // Пример для user_id, если есть
+        type_id: formData.get('category'), // Пример для type_id, соответствующий выбору категории
+        comment: formData.get('comments'),
+        files: formData.get('url') // Ссылка на файл или строка
+    };
 
     try {
-        // Отправляем данные на сервер с помощью fetch
+        // Отправляем данные на сервер
         const response = await fetch("/add_order", {
             method: "POST",
-            body: formData,  // FormData автоматически определяет правильный content-type
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
         });
 
         const result = await response.json();
 
         if (response.ok) {
             signInErrorMsg.style.color = "#38a169"; // Зеленый для успешного добавления
-            signInErrorMsg.textContent = result.message; // Сообщение об успешном добавлении
+            signInErrorMsg.textContent = result.message; // Сообщение о успешном добавлении
 
             // Сбросим форму
             e.target.reset();
 
-            // Перезагрузим страницу через 1 секунду (можно поменять время на ваше усмотрение)
+            // Обновим страницу через 1 секунду (например, чтобы дать время для отображения сообщения)
             setTimeout(() => {
                 location.reload(); // Перезагружаем страницу
             }, 1000);

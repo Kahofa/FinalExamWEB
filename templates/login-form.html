@@ -9,7 +9,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form id="signUpForm" novalidate>
+            <form id="signUpForm" method="post" action="/register">
                 <h1>Создайте аккаунт</h1>
                 <span class="create-form">или воспользуйтесь своей учетной записью</span>
                 <div class="input-wrapper">
@@ -29,15 +29,15 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form id="signInForm" novalidate>
+            <form id="signInForm" method="post" action="/login">
                 <h1 class="create-form">Авторизация</h1>
                 <span class="create-form">или создайте учетную запись</span>
                 <div class="input-wrapper">
-                    <input type="text" id="signInName" required />
+                    <input type="text" id="signInName" name="username" required />
                     <label for="signInName">Имя</label>
                 </div>
                 <div class="input-wrapper">
-                    <input type="password" id="signInPassword" required />
+                    <input type="password" id="signInPassword" name="password" required />
                     <label for="signInPassword">Пароль</label>
                 </div>
                 <a href="#" id="forgot">Забыли свой пароль?</a>
