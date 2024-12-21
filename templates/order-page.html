@@ -26,17 +26,13 @@
     
     <header class="header">
         <div class="header-logo">
-            <!-- <img src=""> -->
         </div>
         <input type="checkbox" id="nav_check" hidden>
-        <nav>
-            <!-- <div class="header-logo">
-                <img src="#" alt="Logo">
-            </div> -->
+        <nav>     
             <ul>
-                <li>
-                    <a href="" key="itoutsourcing">IT-Аутсорсинг</a>
-                </li>
+              <li>
+                <a href="" key="">Malstavo</a>
+              </li>
                 <li>
                     <a href="" key="home">Главная</a>
                 </li>
@@ -60,13 +56,13 @@
       <div class="order-container w-container">
         <h2 class="heading-pg" key ="place-order">Оформить заказ</h2>
         <p class="description-pg" key="order-form">Пожалуйста, заполните форму ниже для оформления вашего заказа.</p>
-        <form class="order-form" action="submit-order.php" method="post" enctype="multipart/form-data">
-          
+        <form class="order-form" enctype="multipart/form-data">
           <label for="tel" key="entering-number">Введите ваш номер телефона:</label>
           <input type="tel" id="phone" name="phone" class="input-field" placeholder="+7 (___) ___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" required>
 
           <label for="category" key="category">Категория услуги:</label>
           <select id="category" name="category" class="input-field">
+            <option value="" disabled selected key="select-category">Выберите категорию</option>
             <option value="web-development" id="" key="web-development">Разработка сайтов</option>
             <option value="mobile-apps" id="" key="mobile-apps">Мобильные приложения</option>
             <option value="telegram-bots" id="" key="telegram-bots">Разработка Telegram-ботов</option>
@@ -98,67 +94,59 @@
         </form>
       </div>
     </div>
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h1 key="general">Общее💙</h1>
-        <ul>
-          <li><a href="#" key="feedbacklink">Обратная связь</a></li>
-          <li><a href="#" key="complaintlink">Отправить жалобу</a></li>
-          <li><a href="#" key="aboutuslink">О компании</a></li>
-        </ul>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h1 key="general">Общее💙</h1>
+          <ul>
+            <li><a href="#" key="feedbacklink">Обратная связь</a></li>
+            <li><a href="https://e-tutynushy.kz/main" key="complaintlink">Отправить жалобу</a></li>
+            <li><a href="#about-company" key="aboutuslink">О компании</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h1 key="socialmedia">Социальные сети🌐</h1>
+          <ul>
+            <li><a href="https://vk.com/" key="vkgroup" target="_blank">Группа ВКонтакте</a></li>
+            <li><a href="https://web.telegram.org/k/" key="telegramgroup" target="_blank">Группа Telegram</a></li>
+            <li><a href="https://www.tiktok.com/" key="tiktokaccount" target="_blank">Аккаунт Tiktok</a></li>
+            <li><a href="https://www.instagram.com/" key="instagramaccount" target="_blank">Аккаунт Instagram</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h1 key="services">Услуги📑</h1>
+          <ul>
+            <li><a href="#web-development" key="webdevelopment">Веб-разработка</a></li>
+            <li><a href="#discord-bots" key="bots">Боты</a></li>
+            <li><a href="#technical-support" key="maintenance">Техническое обслуживание</a></li>
+            <li><a href="#" key="video-surveillance" >Товарные Маркеплейсы</a></li>          </ul>
+        </div>
+        <div class="footer-section">
+          <h1 key="other">Другое💠</h1>
+          <ul>
+            <li><a href="https://2gis.kz/almaty/firm/70000001028396326/tab/reviews" key="reviews" target="_blank">Отзывы</a></li>
+            <li><a href="https://www.cybereason.com/partners/resale-partners" key="resale" target="_blank">Resale-Partners</a></li>
+            <li><a href="https://yandex.ru/legal/rules/" key="terms" target="_blank">Пользовательское соглашение</a></li>
+            <li><a href="https://yandex.cloud/ru/services/wiki?utm_referrer=https%3A%2F%2Fyandex.kz%2F" key="knowledgebase" target="_blank">База знаний</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-section">
-        <h1 key="socialmedia">Социальные сети🌐</h1>
-        <ul>
-          <li><a href="#" key="vkgroup">Группа ВКонтакте</a></li>
-          <li><a href="#" key="telegramgroup">Группа Telegram</a></li>
-          <li><a href="#" key="tiktokaccount">Аккаунт Tiktok</a></li>
-          <li><a href="#" key="instagramaccount">Аккаунт Instagram</a></li>
-        </ul>
+      <div class="copyright-container">
+        <p key="copyright">💠Все права защищены</p>
       </div>
-      <div class="footer-section">
-        <h1 key="services">Услуги📑</h1>
-        <ul>
-          <li><a href="#" key="webdevelopment">Веб-разработка</a></li>
-          <li><a href="#" key="bots">Боты</a></li>
-          <li><a href="#" key="maintenance">Техническое обслуживание</a></li>
-          <li><a href="#" key="surveillancecameras">Камеры видеонаблюдения</a></li>
-        </ul>
+      <div class="copyright-info">
+        <p key="24hcontact">malik@malstavo.com - Круглосуточно</p>
+        <p key="afterhourscontact">stavr@malstavo.com - Ненормативный</p>
       </div>
-      <div class="footer-section">
-        <h1 key="other">Другое💠</h1>
-        <ul>
-          <li><a href="#" key="reviews">Отзывы</a></li>
-          <li><a href="#" key="resale">Resale-Partners</a></li>
-          <li><a href="#" key="terms">Пользовательское соглашение</a></li>
-          <li><a href="#" key="knowledgebase">База знаний</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h1 key="outsourcingcompany">Аутсорсинговая компания🦅</h1>
-        <ul>
-          <li><a href="#" key="outsourcing">SAPSAN FIRMA - OUTSOURCING</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copyright-container">
-      <p key="copyright">💠Все права защищены</p>
-    </div>
-    <div class="copyright-info">
-      <p key="24hcontact">ideas@malstavo.com - Круглосуточно</p>
-      <p key="afterhourscontact">ideas@malstavo.com - Ненормативный</p>
-    </div>
-    </footer>
+      </footer>
 
     <div id="loginModal" class="modal">
       <div class="modal-content">
-        <span id="closeModal" class="close-btn">&times;</span>
         <div class="container" id="container">
           <div class="form-container sign-up-container">
             <form id="signUpForm" novalidate>
               <h1 key="create-account">Создайте аккаунт</h1>
-              <span class="create-form" key="">or use your account</span>
+              <span class="create-form" key="use-account">or use your account</span>
               <div class="input-wrapper">
                 <input type="text" id="name" placeholder=" " required />
                 <label for="name" key="login-name">Имя</label>
