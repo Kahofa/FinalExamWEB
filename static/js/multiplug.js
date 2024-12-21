@@ -28,8 +28,8 @@ const translations = {
         "vds-hosting-description": "Наша организация предоставляет техническое обслуживание сервера, включая бесплатное предоставление выделенного сервера для гибкого редактирования компонентов при официальном сотрудничестве с вашей компанией, подробности узнавать у руководства.",
         "domain-registration": "Регистрация доменных имен",
         "domain-registration-description": "Мы предоставляем техническое обслуживание сервера, включая платную консультацию по выбору NIC-регистраторов при приобретении доменного имени, а также предложим вам стильное доменное имя, соответствующее имени вашей компании.",
-        "video-surveillance": "Камеры видеонаблюдения",
-        "video-surveillance-description": "\"SAPSAN FIRMA\" специализируется на обеспечении безопасности крупных компаний через интегрированные системы, включая установку высокотехнологичных камер видеонаблюдения. Наш подход обеспечивает надежную защиту и мониторинг.",
+        "video-surveillance": "Товарные Маркеплейсы",
+        "video-surveillance-description": "Проектирование и разработка товарных маркетплейсов с учетом специфики товаров, процессов и отрасли.",
         "for-companies": "ДЛЯ КОМПАНИЙ",
         "cctv-tag": "CCTV",
         "productbreadcrumb": "продукция Malstavo company",
@@ -117,7 +117,8 @@ const translations = {
         "welcome-again": "С возвращением!",
         "keep-touch": "Чтобы поддерживать с нами связь, пожалуйста, войдите в систему, указав свои личные данные",
         "hi-friend": "Привет, Друг!",
-        "input-your-value": "Введите свои личные данные и отправляйтесь в путешествие вместе с нами"
+        "input-your-value": "Введите свои личные данные и отправляйтесь в путешествие вместе с нами",
+        "select-category": "Выберите категорию"
 
     },
     en: {
@@ -149,8 +150,8 @@ const translations = {
         "vds-hosting-description": "Our organization provides server maintenance, including free dedicated server provision for flexible component editing with official collaboration. For details, please contact management.",
         "domain-registration": "Domain Registration",
         "domain-registration-description": "We provide server maintenance, including paid consultations on selecting NIC registrars when purchasing a domain name, and offer you a stylish domain name that matches your company's name.",
-        "video-surveillance": "Video Surveillance Cameras",
-        "video-surveillance-description": "SAPSAN FIRMA specializes in ensuring security for large companies through integrated systems, including the installation of high-tech video surveillance cameras. Our approach ensures reliable protection and monitoring.",
+        "video-surveillance": "Product Marketplaces",
+        "video-surveillance-description": "Design and development of product marketplaces, taking into account the specifics of products, processes and industry.",
         "for-companies": "FOR COMPANIES",
         "cctv-tag": "CCTV",
         "productbreadcrumb": "Malstavo company products",
@@ -238,8 +239,8 @@ const translations = {
         "welcome-again": "Welcome back!",
         "keep-touch": "To stay connected with us, please log in with your personal information",
         "hi-friend": "Hello, Friend!",
-        "input-your-value": "Enter your personal details and start your journey with us"
-
+        "input-your-value": "Enter your personal details and start your journey with us",
+        "select-category": "Select a category"
 
     }
 };
