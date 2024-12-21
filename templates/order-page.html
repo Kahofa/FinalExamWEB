@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Оформление заказа</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/index/order-page.css">
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="static/css/index/order-page.css">
 </head>
 <body>
     <div class="navbar-header-contact-container">
@@ -36,7 +35,7 @@
             </div> -->
             <ul>
                 <li>
-                    <a href="outsourcing/index.html" key="itoutsourcing">IT-Аутсорсинг</a>
+                    <a href="" key="itoutsourcing">IT-Аутсорсинг</a>
                 </li>
                 <li>
                     <a href="" key="home">Главная</a>
@@ -47,9 +46,6 @@
                 <li>
                     <a href="#service-grid" key="services-header">Услуги</a>
                 </li>
-                <!-- <li>
-                    <a href="info/about" class="active" key="feedback" id="openModalBtn">Открыть модальное окно</a>
-                </li> -->
                 <button id="openModalBtn" class="active" key="log-in-account">Войти<br> в аккаунт</button>
             </ul>
         </nav>
@@ -66,7 +62,7 @@
         <p class="description-pg" key="order-form">Пожалуйста, заполните форму ниже для оформления вашего заказа.</p>
         <form class="order-form" action="submit-order.php" method="post" enctype="multipart/form-data">
           
-          <label for="te" key="entering-number">Введите ваш номер телефона:</label>
+          <label for="tel" key="entering-number">Введите ваш номер телефона:</label>
           <input type="tel" id="phone" name="phone" class="input-field" placeholder="+7 (___) ___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" required>
 
           <label for="category" key="category">Категория услуги:</label>
@@ -218,10 +214,10 @@
 
 
 
-    <script src="/js/index/opem-modal-window.js"></script>
-    <script src="/js/index/multiplug.js"></script>
-    <script src="/js/index/logim-form-swap.js"></script>
-    <script src="/js/index/check-pass.js"></script>
-    <script src="/js/index/check-category.js"></script>
+    <script src="static/js/opem-modal-window.js"></script>
+    <script src="static/js/multiplug.js"></script>
+    <script src="static/js/logim-form-swap.js"></script>
+    <script src="static/js/check-pass.js"></script>
+    <script src="static/js/check-category.js"></script>
 </body>
 </html>
