@@ -16,10 +16,12 @@
                     <thead class="table-dark">
                         <tr>
                             <th><a href="/admin?sort_by=id" class="text-white text-decoration-none">Order ID</a></th>
-                            <th>Username</th>
+                            <th>User Id</th>
+                            <th>Phone</th>
                             <th><a href="/admin?sort_by=type" class="text-white text-decoration-none">Type</a></th>
                             <th>Comment</th>
                             <th>Links</th>
+                            <th>Actions</th> <!-- Столбец для кнопки удаления -->
                         </tr>
                     </thead>
                     <tbody>
@@ -28,8 +30,15 @@
                             <td>{{ order[0] }}</td>
                             <td>{{ order[1] }}</td>
                             <td>{{ order[2] }}</td>
+                            <td>{{ order[5] }}</td>
                             <td>{{ order[3] }}</td>
                             <td>{{ order[4] }}</td>
+                            <td>
+                                <!-- Форма для удаления заказа -->
+                                <form action="/admin/delete/{{ order[0] }}" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>

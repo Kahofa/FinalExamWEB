@@ -26,7 +26,7 @@
     
     <header class="header">
         <div class="header-logo">
-          <img src="/image/index/logopit.png">
+          <img src="static/images/index/logopit.png">
         </div>
         <input type="checkbox" id="nav_check" hidden>
         <nav>
@@ -35,16 +35,16 @@
           </div>     
             <ul>
               <li>
-                <a href="" key="malstavo">Malstavo</a>
+                <a href="/" key="malstavo">Malstavo</a>
               </li>
                 <li>
-                    <a href="" key="home">Главная</a>
+                    <a href="/" key="home">Главная</a>
                 </li>
                 <li>
-                    <a href="" key="aboutcompany">О компании</a>
+                    <a href="/" key="aboutcompany">О компании</a>
                 </li>
                 <li>
-                    <a href="#service-grid" key="services-header">Услуги</a>
+                    <a href="/#service-grid" key="services-header">Услуги</a>
                 </li>
                 <button id="openModalBtn" class="active" key="log-in-account">Войти<br> в аккаунт</button>
             </ul>
@@ -62,7 +62,7 @@
         <p class="description-pg" key="order-form">Пожалуйста, заполните форму ниже для оформления вашего заказа.</p>
         <form class="order-form" enctype="multipart/form-data">
           <label for="tel" key="entering-number">Введите ваш номер телефона:</label>
-          <input type="tel" id="phone" name="phone" class="input-field" placeholder="+7 (___) ___-__-__" required>
+          <input type="tel" id="phone" name="phone" class="input-field" placeholder="+7 (___) ___-__-__" pattern="\+7\d{10}" required>
 
           <label for="category" key="category">Категория услуги:</label>
           <select id="category" name="category" class="input-field">
