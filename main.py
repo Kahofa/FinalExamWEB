@@ -86,6 +86,14 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/login')
+def login():
+    # проверка с бд
+    session['role'] = 'user'
+
+    return render_template('login-form.html')
+
+
 @app.route('/whatsapp')
 def whatsapp():
     return render_template('whatsapp.html')
@@ -94,11 +102,6 @@ def whatsapp():
 @app.route('/order')
 def order():
     return render_template('order-page.html')
-
-
-@app.route('/login')
-def login():
-    return render_template('login-form.html')
 
 
 @app.route('/admin')

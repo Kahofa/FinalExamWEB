@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if (signUpPasswordInput.value.length < 6) {
+        if (signUpPasswordInput.value.length < 3) {
             signUpErrorMsg.textContent = translations[currentLanguage].passwordTooShort;
             shakeForm(signUpForm);
             clearErrorMsg(signUpErrorMsg);
