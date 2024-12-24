@@ -173,7 +173,10 @@ def whatsapp():
 
 @app.route('/order')
 def order():
-    return render_template('order-page.html')
+    if session.get('username') is not None:
+        return render_template('order-page.html')
+    else:
+        return redirect('/login')
 
 
 @app.route('/add_order', methods=['POST'])
@@ -242,6 +245,13 @@ def delete_order(order_id):
         cursor.execute("DELETE FROM orders WHERE id = ?", (order_id,))
         conn.commit()
     return redirect(url_for('admin'))
+
+
+@app.route('/reset')
+def reset_session():
+    session.clear()
+    print(session)
+    return redirect('/')
 
 
 if __name__ == '__main__':
