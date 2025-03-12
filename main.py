@@ -237,6 +237,32 @@ def admin():
     return render_template('admin.html', orders=orders)
 
 
+@app.route('/admin/update', methods=['POST'])
+@admin_required
+def update_orders():
+    try:
+        data = request.form
+        order_ids = data.getlist('order_id')
+        user_ids = data.getlist('user_id')
+        phones = data.getlist('phone')
+        types = data.getlist('type')
+        comments = data.getlist('comment')
+        files = data.getlist('files')
+
+        with sqlite3.connect('database.db') as conn:
+            cursor = conn.cursor()
+            for i in range(len(order_ids)):
+                cursor.execute('''
+                    UPDATE orders SET user_id = ?, phone = ?, type_id = (SELECT id FROM work_types WHERE title = ?),
+                    comment = ?, files = ? WHERE id = ?
+                ''', (user_ids[i], phones[i], types[i], comments[i], files[i], order_ids[i]))
+            conn.commit()
+        return redirect(url_for('admin'))
+    except Exception as e:
+        print("Exception")
+        return redirect(url_for('admin'))
+
+
 @app.route('/admin/delete/<int:order_id>', methods=['POST'])
 @admin_required
 def delete_order(order_id):
